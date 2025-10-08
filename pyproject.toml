@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openai-url-harvester"
+version = "0.7.0"
+description = "Async URL harvester with robots support, depth limiting, sitemap export, and local file URL extraction."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "Apache-2.0"}
+authors = [{name="Layne Intellectual Property"}]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: Apache Software License",
+  "Operating System :: OS Independent",
+]
+
+dependencies = [
+  "requests>=2.32.0",
+  "aiohttp>=3.13",
+  "aiolimiter>=1.2",
+  "beautifulsoup4>=4.12.3",
+  "soupsieve>=2.5",
+  "lxml>=5.2.1",
+  "html5lib>=1.1",
+  "pypdf>=5.0.0",
+  "pdfminer.six>=20231228",
+  "chardet>=5.2.0",
+]
+
+[project.scripts]
+openai-url-harvester = "openai_url_harvester.__main__:main"

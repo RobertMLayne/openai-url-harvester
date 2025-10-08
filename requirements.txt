@@ -1,0 +1,11 @@
+# requirements.txt
+requests>=2.32.0
+aiohttp>=3.13
+aiolimiter>=1.2
+beautifulsoup4>=4.12.3
+soupsieve>=2.5
+lxml>=5.2.1
+html5lib>=1.1
+pypdf>=5.0.0
+pdfminer.six>=20231228
+chardet>=5.2.0

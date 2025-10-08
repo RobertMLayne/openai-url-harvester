@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+.env
+
+# Project artifacts
+artifacts/
+cache/
+crawl_details.csv
+sitemap.xml
+urls.txt
+
+# Editors
+.vscode/
+.idea/
