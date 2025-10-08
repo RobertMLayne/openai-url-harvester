@@ -10,6 +10,7 @@ build/
 # Project artifacts
 artifacts/
 cache/
+.cache/
 crawl_details.csv
 sitemap.xml
 urls.txt

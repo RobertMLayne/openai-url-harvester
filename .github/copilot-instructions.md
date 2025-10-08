@@ -9,6 +9,7 @@ This is an async web crawler specifically designed for OpenAI documentation site
 - **Local extraction**: `src/openai_url_harvester/extract.py` - Extract URLs from local files (HTML, PDF, text)
 - **Utilities**: `src/openai_url_harvester/utils.py` - URL normalization and host filtering
 - **Sitemap**: `src/openai_url_harvester/sitemap.py` - XML sitemap generation
+- **MCP Servers**: `.vscode/mcp.json` - Model Context Protocol servers for enhanced tooling (GitHub, Git, Filesystem, SQLite, Fetch, Playwright, Brave Search)
 
 ## Development Workflow
 
@@ -87,6 +88,19 @@ Follows REP (RFC 9309) for robots handling and caching to ensure standards align
 - **Beautiful Soup**: Prefer `lxml` parser for speed, `html5lib` for tolerance. Use `Tag.get()` for attributes. Output may differ by parser; tests must pin parser choice.
 - **PDF extraction**: Uses `pdfminer.six.high_level.extract_text`, handle parser errors
 - **Testing caveat**: `aioresponses` supports **aiohttp >= 3.3, < 4.0** - pin or adjust on upgrades
+- **MCP Tools**: Requires `uv` (provides `uvx`) and `npx` for server management. See `.github/MCP_SETUP.md` for configuration details.
+
+## MCP Server Integration
+
+**Available Tools**: GitHub (remote), Playwright (browser), Fetch (HTTP→text), Brave Search (web search), Filesystem (scoped I/O), Git (local ops), SQLite (results store), OpenAPI (optional)
+
+**Key Capabilities**:
+- **Web Content**: Use Fetch for static pages, Playwright for JS-rendered content
+- **Data Storage**: SQLite server manages crawl results in `.cache/harvest.db`
+- **Development**: Git and GitHub servers handle version control and repository operations
+- **Discovery**: Brave Search for finding new crawl targets and research
+
+**Usage Patterns**: Use `/mcp-manage` prompt for server administration. MCP tools integrate with Copilot Agent Mode and respect the 128-tool limit.
 
 ## Copilot Configuration
 
