@@ -6,7 +6,7 @@ This workspace uses Model Context Protocol (MCP) servers to extend Copilot's cap
 
 ### Core Development Servers
 
-- **GitHub**: Remote API access for issues, PRs, and repository operations
+- **GitHub**: Remote API access for issues, PRs, and repository operations (via Docker container)
 - **Git**: Local Git operations (staging, commits, diffs)
 - **Filesystem**: Scoped file I/O within the workspace
 - **SQLite**: Results store for crawled URL inventory in `.cache/harvest.db`
@@ -23,9 +23,12 @@ This workspace uses Model Context Protocol (MCP) servers to extend Copilot's cap
 
 ## Setup Instructions
 
-1. **Install required tools**: Ensure `uvx` and `npx` are available in your PATH
-2. **Brave Search API**: Get an API key from [Brave Search API](https://brave.com/search/api/) and set the `BRAVE_API_KEY` environment variable
-3. **Reload VS Code**: After configuration changes, reload the window for MCP servers to initialize
+1. **Install required tools**: 
+   - Ensure `uvx` and `npx` are available in your PATH
+   - Ensure Docker is installed and running for the GitHub MCP server
+2. **GitHub Personal Access Token**: Set the `GITHUB_PERSONAL_ACCESS_TOKEN` environment variable with a GitHub PAT that has appropriate repository permissions
+3. **Brave Search API**: Get an API key from [Brave Search API](https://brave.com/search/api/) and set the `BRAVE_API_KEY` environment variable
+4. **Reload VS Code**: After configuration changes, reload the window for MCP servers to initialize
 
 ## Usage Examples
 
