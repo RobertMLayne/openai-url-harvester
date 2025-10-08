@@ -1,52 +1,88 @@
 {
-  "servers": {
-    "github": { 
-      "type": "stdio",
-      "command": "docker",
-      "args": ["run", "-i", "--rm", "-e", "GITHUB_PERSONAL_ACCESS_TOKEN", "ghcr.io/github/github-mcp-server"]
+    "servers": {
+        "github": {
+            "type": "stdio",
+            "command": "docker",
+            "args": [
+                "run",
+                "-i",
+                "--rm",
+                "-e",
+                "GITHUB_PERSONAL_ACCESS_TOKEN=${input:GITHUB_PERSONAL_ACCESS_TOKEN}",
+                "ghcr.io/github/github-mcp-server"
+            ]
+        },
+        "playwright": {
+            "type": "stdio",
+            "command": "npx",
+            "args": [
+                "-y",
+                "@microsoft/mcp-server-playwright"
+            ]
+        },
+        "fetch": {
+            "type": "stdio",
+            "command": "uvx",
+            "args": [
+                "mcp-server-fetch"
+            ]
+        },
+        "brave-search": {
+            "type": "stdio",
+            "command": "npx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-brave-search"
+            ],
+            "env": {
+                "BRAVE_API_KEY": "${input:BRAVE_API_KEY}"
+            }
+        },
+        "filesystem": {
+            "type": "stdio",
+            "command": "uvx",
+            "args": [
+                "mcp-server-filesystem",
+                "--root",
+                "${workspaceFolder}"
+            ]
+        },
+        "git": {
+            "type": "stdio",
+            "command": "uvx",
+            "args": [
+                "mcp-server-git"
+            ]
+        },
+        "sqlite": {
+            "type": "stdio",
+            "command": "uvx",
+            "args": [
+                "mcp-server-sqlite",
+                "--db-path",
+                "${workspaceFolder}/.cache/harvest.db"
+            ]
+        },
+        "openapi": {
+            "type": "stdio",
+            "command": "uvx",
+            "args": [
+                "mcp-openapi",
+                "--spec-dir",
+                "${workspaceFolder}/openapi"
+            ]
+        }
     },
-
-    "playwright": {
-      "type": "stdio",
-      "command": "npx",
-      "args": ["-y", "@microsoft/mcp-server-playwright"]
-    },
-
-    "fetch": {
-      "type": "stdio",
-      "command": "uvx",
-      "args": ["mcp-server-fetch"]
-    },
-
-    "brave-search": {
-      "type": "stdio",
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-brave-search"],
-      "env": { "BRAVE_API_KEY": "" }
-    },
-
-    "filesystem": {
-      "type": "stdio",
-      "command": "uvx",
-      "args": ["mcp-server-filesystem", "--root", "${workspaceFolder}"]
-    },
-
-    "git": {
-      "type": "stdio",
-      "command": "uvx",
-      "args": ["mcp-server-git"]
-    },
-
-    "sqlite": {
-      "type": "stdio",
-      "command": "uvx",
-      "args": ["mcp-server-sqlite", "--db-path", "${workspaceFolder}/.cache/harvest.db"]
-    },
-
-    "openapi": {
-      "type": "stdio",
-      "command": "uvx",
-      "args": ["mcp-openapi", "--spec-dir", "${workspaceFolder}/openapi"]
-    }
-  }
+    "inputs": [
+        {
+            "id": "GITHUB_PERSONAL_ACCESS_TOKEN",
+            "type": "promptString",
+            "description": "GitHub Personal Access Token for MCP server authentication"
+        },
+        {
+            "id": "BRAVE_API_KEY", 
+            "type": "promptString",
+            "description": "Brave Search API key for web search capabilities"
+        }
+    ]
 }
