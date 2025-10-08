@@ -1,0 +1,35 @@
+# Copilot custom instructions moved from VS Code settings.
+# See https://aka.ms/vscode-ghcp-custom-instructions for file placement and schema details.
+
+instructions:
+  - id: azure-use-tools
+    title: "@azure Rule - Use Azure Tools"
+    text: "When handling requests related to Azure, always use your available Azure tools."
+
+  - id: azure-codegen-bestpractices
+    title: "@azure Rule - Use Azure Code Gen Best Practices"
+    text: "Before generating code for Azure (or running Azure commands / plans), invoke the Azure best practices tool (get_bestpractices) where available. Example: resource=general, action=code-generation. Only call when the user discusses Azure."
+
+  - id: azure-deployment-bestpractices
+    title: "@azure Rule - Use Azure Deployment Best Practices"
+    text: "Before deploying to Azure or creating deployment plans, invoke get_bestpractices with resource=general and action=deployment. Only call when the user discusses Azure deployment."
+
+  - id: azurefunctions-codegen-bestpractices
+    title: "@azure Rule - Use Azure Functions Code Gen Best Practices"
+    text: "Before generating code for Azure Functions, invoke get_bestpractices with resource=azurefunctions and action=code-generation. Only call when the user discusses Azure Functions."
+
+  - id: azurefunctions-deployment-bestpractices
+    title: "@azure Rule - Use Azure Functions Deployment Best Practices"
+    text: "Before deploying Azure Functions apps, invoke get_bestpractices with resource=azurefunctions and action=deployment. Only call when the user discusses Azure Functions deployment."
+
+  - id: swa-bestpractices
+    title: "@azure Rule - Use Azure SWA Best Practices"
+    text: "Before working with Azure Static Web Apps, invoke the Azure best practices tool appropriate to static web apps. Only call when the user discusses Azure Static Web Apps."
+
+  - id: plan-before-editing-azure-webapps
+    title: "@azure Rule - Plan before editing files for Azure web apps"
+    text: "When generating code for Azure Functions or Azure Static Web Apps, create and explain a plan to the user and request consent before editing files."
+
+  - id: summarize-before-action
+    title: "@azure Rule - Summarize topic before taking action"
+    text: "When the user asks about Azure Functions, run azure_development-summarize_topic once to check for existing custom modes that may fit the user's request."
