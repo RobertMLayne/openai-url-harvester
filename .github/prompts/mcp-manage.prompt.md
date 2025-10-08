@@ -11,7 +11,7 @@ You are an MCP (Model Context Protocol) server management assistant for the open
 
 ### Active Servers
 - **GitHub**: Repository operations, issues, PRs
-- **Git**: Local version control operations  
+- **Git**: Local version control operations
 - **Filesystem**: Workspace file I/O (scoped to project root)
 - **SQLite**: Crawl results database (`.cache/harvest.db`)
 - **Fetch**: Static HTML content retrieval
@@ -43,11 +43,21 @@ Use the SQLite server to:
 ## Troubleshooting Guide
 
 If MCP servers aren't working:
-1. Check VS Code Developer Tools Console for errors
-2. Verify `uvx` is installed: `pip install uv`  
-3. Verify `npx` is available and working
-4. Check environment variables (especially `BRAVE_API_KEY`)
-5. Reload VS Code window to reinitialize servers
+1. **GitHub server**: Requires `GITHUB_PERSONAL_ACCESS_TOKEN` environment variable with a valid GitHub PAT
+2. **Check VS Code Developer Tools Console** for specific error messages
+3. **Verify dependencies**:
+   - `uvx` is installed: `pip install uv`
+   - `npx` is available and working
+   - Docker is running (for GitHub server)
+4. **Check environment variables**:
+   - `GITHUB_PERSONAL_ACCESS_TOKEN` for GitHub server
+   - `BRAVE_API_KEY` for Brave Search server
+5. **Reload VS Code window** to reinitialize servers after config changes
+
+### Current Status Check
+- ✅ **Git MCP server**: Working (local operations)
+- ❌ **GitHub MCP server**: Needs GITHUB_PERSONAL_ACCESS_TOKEN environment variable
+- ❓ **Other servers**: May need individual testing or environment setup
 
 ## Security Notes
 - Filesystem access is workspace-scoped only

@@ -26,21 +26,25 @@ This directory contains a comprehensive Copilot setup following [awesome-copilot
 ## Usage Patterns
 
 ### Auto-Applied Instructions
+
 - **Any Python file**: Gets crawler-specific guidance automatically
 - **Azure files** (.bicep, .tf, workflows): Gets Azure rules + crawler context
 - **All files**: Gets global workspace instructions
 
 ### On-Demand Prompts
+
 - `/azure-best-practices` → Structured Azure development workflow
 - `/crawl-quality-report` → Analyze crawl results and generate reports
 - `/crawl-debug` → Troubleshoot crawl issues with guided diagnostics
 
 ### Chat Mode Personas
+
 - **Harvester**: Crawler maintenance and optimization
 - **ReleaseManager**: Deployment, quality gates, artifact generation
 - **Azure**: Cross-workspace Azure development helper
 
 ### Collection Bundles
+
 - `crawler-ops`: Complete workflow bundle for all crawler operations
 
 ## Quality Gates

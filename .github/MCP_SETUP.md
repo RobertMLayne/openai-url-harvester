@@ -23,7 +23,7 @@ This workspace uses Model Context Protocol (MCP) servers to extend Copilot's cap
 
 ## Setup Instructions
 
-1. **Install required tools**: 
+1. **Install required tools**:
    - Ensure `uvx` and `npx` are available in your PATH
    - Ensure Docker is installed and running for the GitHub MCP server
 2. **GitHub Personal Access Token**: Set the `GITHUB_PERSONAL_ACCESS_TOKEN` environment variable with a GitHub PAT that has appropriate repository permissions
@@ -33,6 +33,7 @@ This workspace uses Model Context Protocol (MCP) servers to extend Copilot's cap
 ## Usage Examples
 
 ### Web Crawling Workflow
+
 ```
 1. Use Fetch server to retrieve static HTML content
 2. Use Playwright for JavaScript-heavy sites requiring browser rendering
@@ -41,6 +42,7 @@ This workspace uses Model Context Protocol (MCP) servers to extend Copilot's cap
 ```
 
 ### Development Workflow
+
 ```
 1. Use Filesystem server for safe workspace file operations
 2. Use GitHub server for issue/PR management
@@ -58,6 +60,7 @@ This workspace uses Model Context Protocol (MCP) servers to extend Copilot's cap
 ## Troubleshooting
 
 If MCP servers fail to load:
+
 1. Check that `uvx` is installed: `pip install uv`
 2. Verify `npx` is available: `npm --version`
 3. Check VS Code Developer Tools Console for MCP errors
