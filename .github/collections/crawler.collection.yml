@@ -1,0 +1,36 @@
+name: crawler-ops
+description: Complete workflow for OpenAI URL harvester operations
+version: 1.0.0
+
+instructions:
+  - path: instructions/openai-url-harvester.instructions.md
+    description: Core crawler development rules
+  - path: instructions/azure.rules.instructions.md  
+    description: Azure deployment and infrastructure rules
+
+prompts:
+  - path: prompts/azure-best-practices.prompt.md
+    description: Azure development workflow with best practices
+  - path: prompts/crawl-quality-report.prompt.md
+    description: Analyze crawl results and generate quality reports
+  - path: prompts/crawl-debug.prompt.md
+    description: Debug crawl issues and propose solutions
+
+chatmodes:
+  - path: chatmodes/Harvester.chatmode.md
+    description: Crawler Maintainer - development and optimization
+  - path: chatmodes/ReleaseManager.chatmode.md
+    description: Release Manager - deployment and quality gates
+  - path: chatmodes/Azure.chatmode.md
+    description: Azure development helper with prechecks
+
+usage: |
+  This collection provides a complete workflow for maintaining the openai-url-harvester:
+  
+  1. **Development**: Use Harvester mode for code changes
+  2. **Quality**: Run /crawl-quality-report for analysis
+  3. **Debugging**: Use /crawl-debug for troubleshooting  
+  4. **Release**: Switch to ReleaseManager mode for deployments
+  5. **Azure**: Use Azure mode for infrastructure changes
+
+  All instructions auto-apply based on file patterns. Prompts are on-demand with / commands.
