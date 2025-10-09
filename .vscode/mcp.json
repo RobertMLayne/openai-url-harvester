@@ -80,7 +80,11 @@
             "description": "GitHub Personal Access Token for MCP server authentication"
         },
         {
+<<<<<<< HEAD
             "id": "BRAVE_API_KEY",
+=======
+            "id": "BRAVE_API_KEY", 
+>>>>>>> a815060f350dad99b15d12a0b8ee92bb5f6ea5ea
             "type": "promptString",
             "description": "Brave Search API key for web search capabilities"
         }
