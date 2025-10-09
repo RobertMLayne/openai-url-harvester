@@ -1,0 +1,76 @@
+name: Bug Report
+description: File a bug report to help us improve the openai-url-harvester
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+
+  - type: input
+    id: crawler-version
+    attributes:
+      label: Crawler Version
+      description: What version of openai-url-harvester are you running?
+      placeholder: "e.g., v1.0.0 or commit hash"
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A clear description of what the bug is.
+      placeholder: Tell us what you see!
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+      placeholder: Tell us what you expected!
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction-steps
+    attributes:
+      label: Steps to Reproduce
+      description: Steps to reproduce the behavior
+      placeholder: |
+        1. Run command '...'
+        2. With these arguments '...'
+        3. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: crawl-config
+    attributes:
+      label: Crawl Configuration
+      description: Please share your crawl command or configuration
+      render: shell
+      placeholder: |
+        python -m openai_url_harvester crawl \
+          --start "https://example.com" \
+          --allow "example.com" \
+          --depth 2
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant Log Output
+      description: Please copy and paste any relevant log output (redact sensitive URLs/data)
+      render: shell
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, I agree to follow this project's Code of Conduct
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

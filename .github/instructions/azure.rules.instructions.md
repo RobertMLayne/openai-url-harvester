@@ -1,0 +1,11 @@
+---
+applyTo: "**/*.bicep,**/*.tf,**/*.azcli,**/.github/workflows/**/*.yml,**/azure/**"
+---
+- Use Azure tools for Azure tasks.
+- Before Azure code, call `get_bestpractices` with resource=`general`, action=`code-generation`.
+- Before Azure deployments, call `get_bestpractices` with resource=`general`, action=`deployment`.
+- For Azure Functions code: resource=`azurefunctions`, action=`code-generation`.
+- For Azure Functions deploy: resource=`azurefunctions`, action=`deployment`.
+- For Static Web Apps: run the most relevant best-practice tool first.
+- Plan first for Functions/SWA edits; ask approval before applying.
+- When asked about Functions, run `azure_development-summarize_topic` once.
