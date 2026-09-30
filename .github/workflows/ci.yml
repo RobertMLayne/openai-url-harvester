@@ -9,6 +9,10 @@ on:
 jobs:
     test:
         runs-on: ubuntu-latest
+        timeout-minutes: 30
+        concurrency:
+          group: validation-${{ github.workflow_ref }}-test-${{ matrix.python-version }}-${{ github.event_name }}-${{ github.event.pull_request.number || github.run_id }}
+          cancel-in-progress: ${{ github.event_name == 'pull_request' }}
         strategy:
             matrix:
                 python-version: [3.9, 3.10, 3.11, 3.12, 3.13]
@@ -20,6 +24,8 @@ jobs:
               uses: actions/setup-python@v4
               with:
                   python-version: ${{ matrix.python-version }}
+                  cache: pip
+                  cache-dependency-path: pyproject.toml
 
             - name: Install dependencies
               run: |
