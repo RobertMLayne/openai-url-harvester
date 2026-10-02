@@ -1,0 +1,4 @@
+# Pin validation tools so their CLI and checks do not drift between runs.
+pytest==8.4.2
+mypy==1.19.1
+ruff==0.12.12
